@@ -16,7 +16,7 @@ echo "Getting current Git head."
 OLD_HEAD=$(git rev-parse HEAD)
 
 echo "Doing a Git pull."
-ssh-add bash -c 'ssh-add $DEPLOY_KEY; OUTCOME=$(git pull); TIME_STAMP=$(date); echo $TIME_STAMP "-" $OUTCOME' >> /var/log/git-update.log
+bash -c 'ssh-add $DEPLOY_KEY; OUTCOME=$(git pull); TIME_STAMP=$(date); echo $TIME_STAMP "-" $OUTCOME' >> /var/log/git-update.log
 
 echo "Getting new Git head."
 NEW_HEAD=$(git rev-parse HEAD)
